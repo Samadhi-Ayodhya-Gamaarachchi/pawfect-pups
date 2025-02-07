@@ -19,15 +19,17 @@ export const BannerContainer = styled(Box)(({ theme }) => ({
 }));
 
 export const BannerImage = styled('img')(({ theme }) => ({
-    width: '500px',
+    width: '600px',
+    height:'400px',
 
     [theme.breakpoints.down('md')]: {
-        width: '350px',
+        width: '320px',
+        height:'250px'
     },
 
     [theme.breakpoints.down('sm')]: {
-        width: '320px',
-        height: '300px',
+        width: '300px',
+        height: '250px',
     }
 }));
 
