@@ -13,8 +13,9 @@ export default function AppbarMobile({matches}){
             <AppbarHeader textAlign={"center"} variant="h4">
                 Pewfect Pups
             </AppbarHeader>
-            <IconButton>
-                <SearchIcon/>
+            <IconButton sx={{ color: "#5C4033" }}>
+
+                <SearchIcon />
             </IconButton>
             <Actions matches={matches}/>
         </AppbarContainer>

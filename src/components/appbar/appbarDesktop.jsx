@@ -17,7 +17,7 @@ export default function AppbarDesktop({matches}){
                 <ListItemText primary="About us"/>
                 <ListItemText primary="Contact us"/>
                 <ListItemButton>
-                        <ListItemIcon>
+                <ListItemIcon sx={{ color: "#5C4033" }}>
                             <SearchIcon />
                         </ListItemIcon>
                     </ListItemButton>
