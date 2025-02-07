@@ -5,6 +5,7 @@ import Appbar from './components/appbar/index'  // Ensure correct casing
 import theme from './styles/theme/index'
 import Banner from './components/banner/banner'
 import Promotions from './components/promotions/promotion'
+import Products from './components/product/product'
 
 function App() {
   useEffect(() => {
@@ -24,6 +25,7 @@ function App() {
         <Appbar />
         <Banner/>
         <Promotions/>
+        <Products/>
 
        
       </Container>
