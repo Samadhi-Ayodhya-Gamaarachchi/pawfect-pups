@@ -1,5 +1,6 @@
 import { useTheme } from "@mui/material/styles"
-import { useMediaQuery } from "@mui/material"
+import { Container, Grid, useMediaQuery } from "@mui/material"
+import { products } from "../../data/productData";
 
 
 
@@ -10,12 +11,24 @@ export default function Products(){
     const matches =
     useMediaQuery(theme.breakpoints.down('md'));
 
-    const renderProducts=Products
+    const renderProducts=products.map(product=>(
+<Grid item key={product.id} display={"flex"} flexDirection={"column"} alignItems={"center"}>
+
+</Grid>
+    ));
+
     return(
         <>
-        <h1>
-            Products
-        </h1>
+       <Container>
+        <Grid
+        container
+        justifyContent={"center"}
+        sx={{margin:'20px 4px 10px 4px'}}
+        >
+            {renderProducts}
+        </Grid>
+
+       </Container>
         </>
 
     )
