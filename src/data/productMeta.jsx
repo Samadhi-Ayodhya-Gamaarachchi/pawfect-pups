@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import { ProductActionWrapper } from "../styles/products/productIndex";
+import { ProductActionWrapper } from "../styles/product/productIndex";
 
 export default function ProductMeta({ product, matches }) {
   return (
@@ -9,7 +9,7 @@ export default function ProductMeta({ product, matches }) {
           {product.name}
         </Typography>
         <Typography variant={matches ? "caption" : "body1"}>
-          ${product.price}
+          {product.price}
         </Typography>
       </ProductActionWrapper>
     </h1>

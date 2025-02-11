@@ -34,7 +34,9 @@ export const ProductActionButton = styled(motion(IconButton))(() => ({
   },
 }));
 
-export const ProductFavButton = styled(motion(ProductActionButton))(
+export const ProductFavButton = styled(motion(ProductActionButton,{
+  shouldforwardProp:(prop)=> prop !=="isFav"
+}))(
   ({ isFav, theme }) => ({
     color: isFav ? Colors.secondary : Colors.primary,
     [theme.breakpoints.up("md")]: {
@@ -45,7 +47,9 @@ export const ProductFavButton = styled(motion(ProductActionButton))(
   })
 );
 
-export const ProductAddToCart = styled(motion(Button))(({ theme }) => ({
+export const ProductAddToCart = styled(motion(Button),{
+  shouldforwardProp:(prop)=> prop !=="show"
+})(({ theme }) => ({
   width: "120px",
   fontSize: "12px",
   background: Colors.text,
@@ -56,8 +60,8 @@ export const ProductAddToCart = styled(motion(Button))(({ theme }) => ({
   },
   [theme.breakpoints.up("md")]: {
     position: "absolute",
-    bottom: "2%",
-    width: "300px",
+    bottom: "15%",
+    width: "200px",
     padding: "10px 5px",
   },
 }));
