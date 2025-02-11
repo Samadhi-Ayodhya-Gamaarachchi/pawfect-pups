@@ -1,4 +1,4 @@
-import { Button, Container, CssBaseline } from '@mui/material'
+import { Box, Button, Container, CssBaseline, Typography } from '@mui/material'
 import { ThemeProvider } from '@mui/material/styles'
 import { useEffect } from 'react'
 import Appbar from './components/appbar/index'  // Ensure correct casing
@@ -25,6 +25,9 @@ function App() {
         <Appbar />
         <Banner/>
         <Promotions/>
+        <Box display="flex" justifyContent="center" sx={{p:4}}>
+          <Typography variant='h4'>Pawfect Friends💖🐕</Typography>
+        </Box>
         <Products/>
 
        

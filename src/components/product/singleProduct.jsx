@@ -1,34 +1,71 @@
 import React from "react";
-import { Favorite as HeartIcon } from "@mui/icons-material";
-import { IconButton, Box } from "@mui/material";
+import { FitScreen, Favorite as HeartIcon, Share } from "@mui/icons-material";
+import { IconButton, Box, Stack } from "@mui/material";
 import ProductMeta from "../../data/productMeta";
-import { Product, ProductImage } from "../../styles/products/productIndex";
+import {
+  Product,
+  ProductActionButton,
+  ProductActionWrapper,
+  ProductAddToCart,
+  ProductFavButton,
+  ProductImage,
+} from "../../styles/product/productIndex.jsx";
 import { Colors } from "../../styles/theme";
+import { Share as ShareIcon } from "@mui/icons-material";
 
 export default function SingleProduct({ product, matches }) {
   return (
-    <Product style={{ position: "relative" }}>
-      <Box sx={{ position: "relative", display: "inline-block" }}>
-        {/* Product Image */}
-        <ProductImage src={product.image} alt={product.name} />
-
-        {/* Heart Button Positioned on Top */}
-        <IconButton
+    <>
+      <Product
+        style={{
+          position: "relative",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <Box
           sx={{
-            position: "absolute",
-            top: 10,
-            right: 10,
-            backgroundColor: "rgba(255, 255, 255, 0.6)",
-            "&:hover": { backgroundColor: "rgba(255, 255, 255, 0.9)" },
+            position: "relative",
+            width: 250,
+            height: 350, // Set a fixed height
+            overflow: "hidden",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
-          <HeartIcon sx={{ color: Colors.primary }} />
-        </IconButton>
-      </Box>
+          {/* Product Image */}
+          <ProductImage
+            src={product.image}
+            alt={product.name}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover", // Ensures uniform image sizing
+            }}
+          />
 
-      {/* Product Meta & Name */}
-      <ProductMeta product={product} matches={matches} />
-      <h5>{product.name}</h5>
-    </Product>
+          {/* Heart Button Positioned on Top */}
+        </Box>
+
+        {/* Product Meta & Name */}
+        <ProductMeta product={product} matches={matches} />
+        
+        <ProductActionWrapper>
+          <Stack direction="row">
+            <ProductFavButton isFav={0}>
+              <HeartIcon />
+            </ProductFavButton>
+            <ProductActionButton>
+              <Share color="primary" />
+            </ProductActionButton>
+            <ProductActionButton>
+              <FitScreen color="primary" />
+            </ProductActionButton>
+          </Stack>
+        </ProductActionWrapper>
+      </Product>
+      <ProductAddToCart variant="container">Pawfect Picks 🐾</ProductAddToCart>
+    </>
   );
 }

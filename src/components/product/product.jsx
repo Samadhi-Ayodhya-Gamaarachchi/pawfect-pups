@@ -1,21 +1,43 @@
 import { useTheme } from "@mui/material/styles";
-import { Container, Grid, useMediaQuery } from "@mui/material";
+import { Container, Grid, Grid2, useMediaQuery } from "@mui/material";
 import { products } from "../../data/productData";
 import SingleProduct from "./singleProduct";
+import SingleProductDesktop from "./singleProductDesktop";
 
 export default function Products() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
+  const renderProducts=products.map((products)=>(
+  <Grid2
+  className="test"
+  item
+  key={products.id}
+  xs={2}
+  sm={4}
+  md={4}
+  display="flex"
+  flexDirection={"column"}
+  alignItems="center"
+  >
+    {matches ? <SingleProduct product={products} matches={matches}/>
+    :<SingleProductDesktop product={products} matches={matches}/>}
+    
+
+  </Grid2>
+  ));
+
 
   return (
     <Container>
-      <Grid container justifyContent="center" sx={{ margin: "10px 2px 5px 2px" }}>
-        {products.map((product) => (
-          <Grid item xs={12} sm={6} md={4} key={product.id} display="flex" flexDirection="column" alignItems="center">
-            <SingleProduct product={product} matches={matches} />
-          </Grid>
-        ))}
-      </Grid>
+      <Grid2
+      container
+      spacing={{xs:2,md:3}}
+      justifyContent={"center"}
+      sx={{margin:"20px 4px 10px 4px"}}
+      columns={{xs:4,sm:8,md:12}}
+      >
+        {renderProducts}
+      </Grid2>
     </Container>
   );
 }
