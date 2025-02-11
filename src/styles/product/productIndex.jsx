@@ -1,4 +1,4 @@
-import { Colors } from "../../styles/theme";
+import { Colors } from "../theme";
 import { Box, Button, IconButton, styled } from "@mui/material";
 import { motion } from "framer-motion";
 
