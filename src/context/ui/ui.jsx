@@ -1,15 +1,21 @@
 import { createContext, useContext, useState } from "react";
 
-export const UIContext = createContext();
-export const useUIContext = () => useContext(UIContext);
+// Create context
+const UIContext = createContext();
 
-export const UIProvider = ({ children }) => {  // Fixed 'Children' to 'children'
-    const [drawerOpen, setDrawerOpen] = useState(false);  // Fixed typo in 'setDrawerOpen'
+// Context provider
+export function UIProvider({ children }) {
+  const [showSearchBox, setShowSearchBox] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
-    const value = {
-        drawerOpen,
-        setDrawerOpen  // Fixed function name
-    };
+  return (
+    <UIContext.Provider value={{ showSearchBox, setShowSearchBox, setDrawerOpen }}>
+      {children}
+    </UIContext.Provider>
+  );
+}
 
-    return <UIContext.Provider value={value}>{children}</UIContext.Provider>;
-};
+// Custom hook to use context
+export function useUIContext() {
+  return useContext(UIContext);
+}

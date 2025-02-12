@@ -9,6 +9,7 @@ import Products from './components/product/product';
 import Footer from './components/footer/footer';
 import AppDrawer from './components/drawer/drawer';
 import { UIProvider } from './context/ui/ui';  // Fix import
+import SearchBox from './components/search/search';
 
 function App() {
   useEffect(() => {
@@ -35,6 +36,7 @@ function App() {
           <Products />
           <Footer />
           <AppDrawer />
+          <SearchBox/>
         </Container>
       </UIProvider>
     </ThemeProvider>

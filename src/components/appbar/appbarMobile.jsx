@@ -5,26 +5,31 @@ import SearchIcon from "@mui/icons-material/Search";
 import Actions from "./action";
 import { useUIContext } from "../../context/ui/ui";
 
-export default function AppbarMobile({matches}){
+export default function AppbarMobile({ matches }) {
+  const { setDrawerOpen, setShowSearchBox } = useUIContext();
 
-    const {setDrawerOpen}=useUIContext()
+  return (
+    <AppbarContainer>
+      {/* Menu Button */}
+      <IconButton onClick={() => setDrawerOpen(true)}>
+        <MenuIcon />
+      </IconButton>
 
+      {/* Appbar Title */}
+      <AppbarHeader textAlign="center" variant="h4">
+        Pawfect Pups
+      </AppbarHeader>
 
+      {/* Search Button */}
+      <IconButton sx={{ color: "#5C4033" }} onClick={() => {
+  console.log('Search icon clicked');
+  setShowSearchBox(true);
+}}>
+  <SearchIcon />
+</IconButton>
 
-    return (
-        <AppbarContainer>
-            <IconButton onClick={()=>setDrawerOpen(true)}>
-                <MenuIcon/>
-            </IconButton>
-            <AppbarHeader textAlign={"center"} variant="h4">
-                Pewfect Pups
-            </AppbarHeader>
-            <IconButton sx={{ color: "#5C4033" }}>
-
-                <SearchIcon />
-            </IconButton>
-            <Actions matches={matches}/>
-        </AppbarContainer>
-
-    )
+      {/* Actions Component */}
+      <Actions matches={matches} />
+    </AppbarContainer>
+  );
 }
