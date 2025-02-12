@@ -7,6 +7,7 @@ import {
     BannerContent, 
     BannerDescription, 
     BannerImage, 
+    BannerShopButton, 
     BannerTitle 
 } from '../../styles/banner/bannerIndex';
 import banner from '../../assets/back.png'
@@ -28,9 +29,9 @@ export default function Banner() {
                 <BannerDescription variant='body1'>
                     Your go-to place for everything puppy-related—cute moments, care tips, and all the wagging tails you love! 🐾💕
                 </BannerDescription>
-                <BannerButton>
-                Show love💕
-                </BannerButton>
+                <BannerShopButton color='secondary'>
+                    Show Love
+                </BannerShopButton>
 
             </BannerContent>
 
