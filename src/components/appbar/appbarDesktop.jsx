@@ -3,7 +3,10 @@ import { ActionIconContainerDesktop, ActionsIconContainerMobile, AppbarContainer
 import { ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search"
 import Actions from "./action";
+import { useUIContext } from "../../context/ui/ui";
 export default function AppbarDesktop({matches}){
+
+    const {setShowSearchBox}=useUIContext();
 
     
     return (
@@ -17,7 +20,7 @@ export default function AppbarDesktop({matches}){
                 <ListItemText primary="About us"/>
                 <ListItemText primary="Contact us"/>
                 <ListItemButton>
-                <ListItemIcon sx={{ color: "#5C4033" }}>
+                <ListItemIcon sx={{ color: "#5C4033" }} onClick={()=>setShowSearchBox(true)}>
                             <SearchIcon />
                         </ListItemIcon>
                     </ListItemButton>

@@ -2,6 +2,7 @@ import { Box, Button, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import "@fontsource/baloo-2";
 import { Colors } from "../../styles/theme"; // Ensure Colors is correctly defined
+import { padding } from "polished";
 
 export const BannerContainer = styled(Box)(({ theme }) => ({
     display: 'flex',
@@ -86,3 +87,25 @@ export const BannerButton = styled(Button)(({ theme }) => ({
         padding: "10px 10px",
     },
 }));
+
+export const BannerShopButton=styled(Button,{
+    shouldForwardProp:(prop)=>prop !== 'color',
+    name:'MyShopButton',
+    slot:'Root',
+    overridesResolver:(props,styles)=>[
+        styles.root,
+        props.color==='primary' && styles.primary,
+        props.color==='secondary' && styles.secondary,
+    ],
+})(({theme})=>({
+    padding:'20px 0px',
+    color:Colors.text,
+    fontWeight:'bold',
+    fontSize:'16px',
+    borderRadius:'20px',
+    [theme.breakpoints.up('sm')]:{
+        padding:'10px 0px',
+        fontSize:'14px'
+    }
+
+}))
