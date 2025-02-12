@@ -6,6 +6,7 @@ import theme from './styles/theme/index'
 import Banner from './components/banner/banner'
 import Promotions from './components/promotions/promotion'
 import Products from './components/product/product'
+import Footer from './components/footer/footer'
 
 function App() {
   useEffect(() => {
@@ -29,6 +30,7 @@ function App() {
           <Typography variant='h4'>Pawfect Friends💖🐕</Typography>
         </Box>
         <Products/>
+        <Footer/>
 
        
       </Container>
