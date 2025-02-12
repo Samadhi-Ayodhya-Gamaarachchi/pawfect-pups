@@ -3,11 +3,17 @@ import { AppbarContainer, AppbarHeader } from "../../styles/appbar";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import Actions from "./action";
+import { useUIContext } from "../../context/ui/ui";
 
 export default function AppbarMobile({matches}){
+
+    const {setDrawerOpen}=useUIContext()
+
+
+
     return (
         <AppbarContainer>
-            <IconButton>
+            <IconButton onClick={()=>setDrawerOpen(true)}>
                 <MenuIcon/>
             </IconButton>
             <AppbarHeader textAlign={"center"} variant="h4">

@@ -28,6 +28,27 @@ const theme = createTheme({
                 disableElevation:true
             }
         },
+        MuiDrawer: {
+            styleOverrides: {
+              paper: {
+                width: 250,
+                background: Colors.text,
+                color:Colors.background,
+                borderRadius:'0px 100px 0px 0px',
+               borderRight:`2px solid ${(Colors.primary)}`
+              },
+            },
+          },
+          MuiDivider:{
+            styleOverrides:{
+                root:{
+
+                    borderColor:lighten(0.2,Colors.secondary)
+
+                }
+
+            }
+          },
         MyShopButton:{
             styleOverrides:{
                root:{
